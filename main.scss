@@ -1,0 +1,78 @@
+///////////////////////////
+// VARIABLES
+$color-white: #fff;
+$color-black: #000;
+$color-gray: #777;
+$color-gray-2: #bbb;
+$color-gray-3: rgb(85, 84, 84);
+
+
+///////////////////////////
+// BASE
+* {
+    &::before, *::after{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+html {
+    font-size: 63%;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 3rem;
+}
+
+//////////////////////////
+// TYPOGRAPHY
+body {
+    font-family: "lato", sans-serif;
+    line-height: 1.7;
+    color: $color-gray;
+}
+
+.header-primary {
+    color: $color-black;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+//////////////////////////
+// LAYOUT
+.week-days {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.month-days {
+    font-size: 2rem;
+    display: flex;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+//////////////////////////
+// COMPONENT
+.week-day {
+    text-align: center;
+    padding-bottom: .7rem;
+    flex: 0 0 14.28%;
+    border-bottom: 1px solid $color-gray;
+}
+
+.day {
+    color: $color-gray-3;
+    text-align: center;
+    flex: 0 0 14.28%;
+    height: 8rem;
+}
+
+
+
+
+
+
+

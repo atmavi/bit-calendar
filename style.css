@@ -1,0 +1,42 @@
+*::before, * *::after {
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: 63%; }
+
+body {
+  box-sizing: border-box;
+  margin: 3rem; }
+
+body {
+  font-family: "lato", sans-serif;
+  line-height: 1.7;
+  color: #777; }
+
+.header-primary {
+  color: #000;
+  font-size: 3rem;
+  margin-bottom: 1.5rem; }
+
+.week-days {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between; }
+
+.month-days {
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap; }
+
+.week-day {
+  text-align: center;
+  padding-bottom: .7rem;
+  flex: 0 0 14.28%;
+  border-bottom: 1px solid #777; }
+
+.day {
+  color: #555454;
+  text-align: center;
+  flex: 0 0 14.28%;
+  height: 8rem; }
