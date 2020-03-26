@@ -37,6 +37,9 @@ body {
     color: $color-black;
     font-size: 3rem;
     margin-bottom: 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 //////////////////////////
@@ -68,6 +71,17 @@ body {
     text-align: center;
     flex: 0 0 14.28%;
     height: 8rem;
+}
+
+.date-jump {
+
+    & > *{
+        height: 2.5rem;
+    }
+
+    & input {
+        width: 6rem;
+    }
 }
 
 

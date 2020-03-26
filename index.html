@@ -8,9 +8,17 @@
 </head>
 <body>
     <div class="header-primary">
-        <span class="header__year"></span>
-        <span class="header__month"></span>
-    </div>
+        <div class="date-wrapper">
+            <span class="header__year"></span>
+            <span class="header__month"></span>
+        </div>
+
+        <div class="date-jump">
+            <input class="date-jump__month" type="number" placeholder="MM" min="0" max="12">
+            <input class="date-jump__year" type="number" placeholder="YYYY"> 
+            <button class="date-jump__btn">Jump to Date</button>
+        </div>
+    </div> 
 
     <div class="week-days">
         <div class="week-day">Sun</div>
@@ -22,39 +30,7 @@
         <div class="week-day">Sat</div>
     </div>
 
-    <div class="month-days">
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-        <div class="day"></div>
-    </div>  
+    <div class="month-days">test</div>  
 </body>
-<script src="index.js"></script>
+<script type="module" src="index.js"></script>
 </html>
