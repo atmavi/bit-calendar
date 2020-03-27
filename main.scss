@@ -71,6 +71,18 @@ body {
     text-align: center;
     flex: 0 0 14.28%;
     height: 8rem;
+
+    &--active {
+        background-color: rgb(163, 248, 220);
+    }
+
+    &--prev{
+        background-color: rgba(218, 253, 241,.4);
+    }
+
+    &--next{
+        background-color: rgba(105, 253, 204, 0.4);
+    }
 }
 
 .date-jump {

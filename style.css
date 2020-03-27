@@ -42,6 +42,12 @@ body {
   text-align: center;
   flex: 0 0 14.28%;
   height: 8rem; }
+  .day--active {
+    background-color: #a3f8dc; }
+  .day--prev {
+    background-color: rgba(218, 253, 241, 0.4); }
+  .day--next {
+    background-color: rgba(105, 253, 204, 0.4); }
 
 .date-jump > * {
   height: 2.5rem; }

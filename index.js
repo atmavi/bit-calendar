@@ -3,9 +3,7 @@ let $= el => document.querySelector(el);
 
 // HEADER TEXT
 function headerText(m, y) {
-    let d=1;
     let date= new Date(`${m} 1, ${y}`);
-
     let headerYear= $('.header__year');
     headerYear.textContent= date.getFullYear();
 
@@ -44,14 +42,23 @@ function setDaysInCalendar(m, y) {
     }
     $('.month-days').innerHTML=calDays;
 
-    
-
     //SET THE DAYS OF THE MONTH (NUMBERS)
     let daysOnMonth= $all('.day');
-    let numbered= start+ days;
+
+    //GET PREV MONTH
+    let prevMonth= daysInMonth(m-1,y);
 
     daysOnMonth.forEach((day, index)=> {
-        day.textContent=index<start|| index>=numbered ? '' : index-start+1;
+        if(index<start){
+            day.textContent= (prevMonth-(start-1))+index;
+            day.classList.add('day--prev');
+        }else if(index>=days+start){
+            day.textContent= index-days+1;
+            day.classList.add('day--next');
+        }else{
+            day.textContent= index-start+1;
+            day.classList.add('day--active');
+        }
     });
 }
 
@@ -63,12 +70,24 @@ $('.date-jump__btn').addEventListener('click', ()=> {
     setDaysInCalendar(mm, yyyy);
 });
 
-function dateJump() {
-    
-    
-}
+
+////////////////////////////
+WIP
+////////////////////////////
+// $('.day--prev').forEach(day =>{
+//     day.addEventListener('click', ()=> {
+//         view.mm--;
+//     })
+// })
+
+
 
 let today= new Date();
+let view= {
+    mm: today.getMonth()+1,
+    yy: today.getFullYear()
+}
 
-// setDaysInCalendar(today.getMonth(), today.getFullYear());
-setDaysInCalendar(10, 1995);
+console.log(view.mm, view.yy)
+
+window.onload= setDaysInCalendar(view.mm, view.yy);
