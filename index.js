@@ -1,6 +1,35 @@
 let $all= el => document.querySelectorAll(el);
 let $= el => document.querySelector(el);
 
+let today= new Date();
+let view= {
+    mm: today.getMonth()+1,
+    yy: today.getFullYear()
+};
+
+// MOVING TO NEXT AND PREV MONTH
+let nav= {
+    next: function() {
+        view.mm++;
+            if(view.mm>= 13){
+                view.mm=1;
+                view.yy++;
+        }
+        setDaysInCalendar(view.mm, view.yy);
+    },
+    prev: function() {
+        view.mm--;
+            if(view.mm<= 0){
+                view.mm=12;
+                view.yy--;
+            }
+        setDaysInCalendar(view.mm, view.yy);
+    }
+}
+
+window.onload= setDaysInCalendar(view.mm, view.yy);
+
+
 // HEADER TEXT
 function headerText(m, y) {
     let date= new Date(`${m} 1, ${y}`);
@@ -10,6 +39,10 @@ function headerText(m, y) {
     let headerMonth= $('.header__month');
     headerMonth.textContent= monthName(date);
 }
+
+// NAV BUTTONS
+$('.nav__left').addEventListener('click', ()=> nav.prev());
+$('.nav__right').addEventListener('click', ()=> nav.next());
 
 //FORMAT MONTH NAME
 function monthName(date) {
@@ -42,13 +75,11 @@ function setDaysInCalendar(m, y) {
     }
     $('.month-days').innerHTML=calDays;
 
-    //SET THE DAYS OF THE MONTH (NUMBERS)
-    let daysOnMonth= $all('.day');
-
     //GET PREV MONTH
     let prevMonth= daysInMonth(m-1,y);
-
-    daysOnMonth.forEach((day, index)=> {
+    
+    //SET DAYS TO CALENDAR
+    $all('.day').forEach((day, index)=> {
         if(index<start){
             day.textContent= (prevMonth-(start-1))+index;
             day.classList.add('day--prev');
@@ -60,34 +91,22 @@ function setDaysInCalendar(m, y) {
             day.classList.add('day--active');
         }
     });
+    // ADD CLICK EVENT ON EACH DATE FROM PREV MONTH
+    $all('.day--prev').forEach(day => {
+        day.addEventListener('click', ()=> {
+            nav.prev();
+        });
+    });
+    // ADD CLICK EVENT ON EACH DATE FROM NEXT MONTH
+    $all('.day--next').forEach(day => {
+        day.addEventListener('click', ()=> {
+            nav.next();
+        });
+    });
 }
-
 
 $('.date-jump__btn').addEventListener('click', ()=> {
     let mm= $('.date-jump__month').value;
     let yyyy= $('.date-jump__year').value;
-    console.log(mm, yyyy);
     setDaysInCalendar(mm, yyyy);
 });
-
-
-////////////////////////////
-WIP
-////////////////////////////
-// $('.day--prev').forEach(day =>{
-//     day.addEventListener('click', ()=> {
-//         view.mm--;
-//     })
-// })
-
-
-
-let today= new Date();
-let view= {
-    mm: today.getMonth()+1,
-    yy: today.getFullYear()
-}
-
-console.log(view.mm, view.yy)
-
-window.onload= setDaysInCalendar(view.mm, view.yy);
